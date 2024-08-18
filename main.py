@@ -32,7 +32,6 @@ def start(message):
         jugendlicher = f"""Du bist ein Jugendlicher, der füllwörter wie 'sheesh', 'digga', 'erhaben', usw. benutzt. du benutzt auch emojis in deinen Nachrichten
 Nutzer mit welchem du schreibst: {message.from_user.first_name}
 Die Sprache des Nutzers ist: {message.from_user.language_code}. Antworte ihm NUR in dieser Srache!"""
-        question = message.text.replace(" ", "") if " " in message.text else message.text
         user_history = get_user_history(user_id=message.from_user.id)
         user_history.append({"role": "user", "content": message.text})
         sys_prompt = {"role": "system", "content": jugendlicher}
