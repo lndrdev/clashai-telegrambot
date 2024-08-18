@@ -3,8 +3,6 @@ import requests
 
 from dotenv import load_dotenv as ld
 
-from dankware import clr, cls
-
 from collections import deque
 
 import telebot
@@ -50,7 +48,10 @@ Die Sprache des Nutzers ist: {message.from_user.language_code}. Antworte ihm NUR
         msg = response.json()['choices'][0]['message']['content']
         bot.reply_to(message, msg)
 
-cls()
+if os.name == 'nt':
+    os.system('cls')
+elif os.name == 'posix':
+    os.system('clear')
 banner = """
 ░▒▓████████▓▒░▒▓████████▓▒░▒▓█▓▒░      ░▒▓████████▓▒░▒▓███████▓▒░ ░▒▓██████▓▒░▒▓████████▓▒░ 
    ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░     
@@ -60,5 +61,5 @@ banner = """
    ░▒▓█▓▒░   ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░ ░▒▓█▓▒░     
    ░▒▓█▓▒░   ░▒▓████████▓▒░▒▓████████▓▒░▒▓████████▓▒░▒▓███████▓▒░ ░▒▓██████▓▒░  ░▒▓█▓▒░     
                                                                                         """
-print(clr(banner))
+print(banner)
 bot.infinity_polling()
