@@ -1,7 +1,7 @@
 # 🛰️ ClashAI Telegram Bot
 **A Telegram Bot for interacting with the [ClashAI API](https://discord.gg/ESfE6uRZsV)!**
 
-## Quickstart
+## 🚀 Quickstart
 - Clone this repo
 - Create a Telegram Account
 - Write /newbot to [BotFather](https://t.me/BotFather)
