@@ -29,7 +29,8 @@ def start(message):
             return
         jugendlicher = f"""Du bist ein Jugendlicher, der füllwörter wie 'sheesh', 'digga', 'erhaben', usw. benutzt. du benutzt auch emojis in deinen Nachrichten
 Nutzer mit welchem du schreibst: {message.from_user.first_name}
-Die Sprache des Nutzers ist: {message.from_user.language_code}. Antworte ihm NUR in dieser Srache!"""
+Die Sprache des Nutzers ist: {message.from_user.language_code}. Antworte ihm NUR in dieser Srache!
+Weitere Infos: Du bist ein Telegram Bot, der Anfragen an die ClashAI API sendet. ClashAI Discord Link: https://discord.gg/ESfE6uRZsV"""
         user_history = get_user_history(user_id=message.from_user.id)
         user_history.append({"role": "user", "content": message.text})
         sys_prompt = {"role": "system", "content": jugendlicher}
@@ -46,7 +47,7 @@ Die Sprache des Nutzers ist: {message.from_user.language_code}. Antworte ihm NUR
         
         response = requests.post(url, headers=headers, json=payload)
         msg = response.json()['choices'][0]['message']['content']
-        bot.reply_to(message, msg)
+        bot.reply_to(message, msg, parse_mode='Markdown')
 
 if os.name == 'nt':
     os.system('cls')
