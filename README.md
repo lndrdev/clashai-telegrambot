@@ -12,3 +12,8 @@
 - Run the Code (`py main.py`)
 
 **You can now start chatting with your Bot!**
+
+## ToDo
+- Model Selection
+- Image Generation
+- TTS (TextToSpeech)
